@@ -33,7 +33,8 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            background-image: url('a.jpg');
+            /* تم تغيير الخلفية الرئيسية إلى aa.jpg */
+            background-image: url('aa.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -199,6 +200,7 @@
             width: 120px;
             height: 120px;
             border-radius: 50%;
+            /* تم تغيير الصورة الجانبية إلى a.jpg */
             border: 3px solid var(--primary-color);
             object-fit: cover;
             box-shadow: 0 0 20px rgba(217, 35, 15, 0.7);
@@ -227,10 +229,14 @@
             justify-content: center;
             align-items: center;
             padding: 30px 20px;
+            margin-right: 150px;
             transition: all 0.5s ease;
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            main {
+                margin-right: 0;
+            }
         }
 
         .intro {
@@ -242,7 +248,6 @@
             border-left: 3px solid var(--primary-color);
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
             transition: all 0.5s ease;
-            width: 100%;
         }
 
         .light-mode .intro {
@@ -267,15 +272,13 @@
             gap: 25px;
             margin-top: 30px;
             max-width: 1000px;
-            margin-left: auto;
-            margin-right: auto;
         }
 
         .account {
             background: var(--dark-card);
             border-radius: 10px;
-            padding: 20px;
-            width: 220px;
+            padding: 25px;
+            width: 280px;
             transition: all 0.4s;
             border: 1px solid transparent;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
@@ -385,7 +388,7 @@
         }
 
         .account:hover {
-            transform: translateY(-8px) scale(1.03);
+            transform: translateY(-10px) scale(1.03);
             box-shadow: 0 15px 30px rgba(217, 35, 15, 0.3);
         }
 
@@ -394,18 +397,18 @@
         }
 
         .account i {
-            font-size: 2.8rem;
-            margin-bottom: 15px;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
             text-shadow: 0 0 10px currentColor;
             background: rgba(0, 0, 0, 0.7);
-            padding: 12px;
+            padding: 15px;
             border-radius: 50%;
-            width: 70px;
-            height: 70px;
+            width: 80px;
+            height: 80px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 15px;
+            margin: 0 auto 20px;
             transition: all 0.5s ease;
         }
 
@@ -435,12 +438,12 @@
         }
 
         .account h3 {
-            margin: 12px 0;
-            font-size: 1.5rem;
+            margin: 15px 0;
+            font-size: 1.8rem;
             color: #fff;
             text-shadow: 0 0 5px #000;
             background: rgba(0, 0, 0, 0.7);
-            padding: 8px;
+            padding: 10px;
             border-radius: 5px;
             transition: all 0.5s ease;
         }
@@ -452,10 +455,10 @@
 
         .account p {
             color: #ddd;
-            margin-bottom: 15px;
-            font-size: 1rem;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
             background: rgba(0, 0, 0, 0.5);
-            padding: 8px;
+            padding: 10px;
             border-radius: 5px;
             transition: all 0.5s ease;
         }
@@ -466,7 +469,7 @@
         }
 
         .account .emoji {
-            font-size: 1.3rem;
+            font-size: 1.5rem;
             margin-left: 5px;
         }
 
@@ -479,7 +482,6 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             border-left: 3px solid var(--primary-color);
             transition: all 0.5s ease;
-            width: 100%;
         }
 
         .light-mode .inquiry-section {
@@ -644,11 +646,9 @@
             background-color: rgba(20, 20, 30, 0.9);
             border-top: 2px solid var(--primary-color);
             font-size: 1.1rem;
+            margin-right: 150px;
             transition: all 0.5s ease;
             position: relative;
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
         }
 
         .light-mode footer {
@@ -739,6 +739,10 @@
                 width: 100px;
                 height: 100px;
             }
+            
+            main, footer {
+                margin-right: 120px;
+            }
         }
 
         @media (max-width: 768px) {
@@ -753,6 +757,10 @@
                 right: 15px;
             }
             
+            main, footer {
+                margin-right: 0;
+            }
+            
             .accounts {
                 flex-direction: column;
                 align-items: center;
@@ -760,7 +768,6 @@
             
             .account {
                 width: 90%;
-                max-width: 300px;
             }
             
             .inquiry-section {
@@ -797,12 +804,13 @@
         <i class="fas fa-sun"></i>
     </div>
     
-    <img src="aa.jpg" alt="صورة المطور" class="side-image">
+    <!-- تم تغيير الصورة الجانبية إلى a.jpg -->
+    <img src="a.jpg" alt="صورة المطور" class="side-image">
     
     <header>
         <div class="header-content">
             <h1><span class="hacker-text">روكس | Rooks</span> 🏴‍☠️</h1>
-            <p>منصة تطوير بوتات تلجرام الاحترافية</p>
+            <p>منظمة غير هادفة لربح ⚠️</p>
         </div>
     </header>
 
@@ -842,12 +850,6 @@
                 <p>اضغط لمتابعة حسابي</p>
             </div>
             
-            <div class="account tiktok" onclick="window.open('https://tiktok.com/@rocks.dev', '_blank')">
-                <i class="fab fa-tiktok"></i>
-                <h3>تيك توك <span class="emoji">🎵</span></h3>
-                <p>اضغط لمتابعة الحساب</p>
-            </div>
-            
             <div class="account rocks-platform" onclick="window.open('https://rocks9.onrender.com', '_blank')">
                 <i class="fas fa-music"></i>
                 <h3>منصة روكس <span class="emoji">🎶</span></h3>
@@ -858,6 +860,12 @@
                 <i class="fas fa-shopping-bag"></i>
                 <h3>متجر القراصنة <span class="emoji">🏴‍☠️</span></h3>
                 <p>اضغط لزيارة المتجر</p>
+            </div>
+            
+            <div class="account tiktok" onclick="window.open('https://tiktok.com/@rocks.dev', '_blank')">
+                <i class="fab fa-tiktok"></i>
+                <h3>تيك توك <span class="emoji">🎵</span></h3>
+                <p>اضغط لمتابعة الحساب</p>
             </div>
         </div>
         
@@ -944,11 +952,11 @@
                     const angleX = (y - centerY) / 20;
                     const angleY = (centerX - x) / 20;
                     
-                    account.style.transform = `perspective(1000px) rotateX(${angleX}deg) rotateY(${angleY}deg) scale(1.03) translateY(-8px)`;
+                    account.style.transform = `perspective(1000px) rotateX(${angleX}deg) rotateY(${angleY}deg) scale(1.05) translateY(-10px)`;
                 });
                 
                 account.addEventListener('mouseleave', () => {
-                    account.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1) translateY(-8px)';
+                    account.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1) translateY(-10px)';
                 });
             });
 
@@ -1056,4 +1064,4 @@ ${data.message}
         }
     </script>
 </body>
-        </html>
+    </html>
