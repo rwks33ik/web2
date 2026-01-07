@@ -260,37 +260,22 @@
             color: var(--light-text);
         }
 
-        .accounts-section {
-            width: 100%;
-            max-width: 1000px;
-            margin: 30px auto;
-        }
-
-        .accounts-section h2 {
-            color: var(--primary-color);
-            font-size: 2.2rem;
-            margin-bottom: 30px;
-            text-shadow: 0 0 10px rgba(217, 35, 15, 0.7);
-        }
-
-        .light-mode .accounts-section h2 {
-            color: #25D366;
-            text-shadow: 0 0 10px rgba(37, 211, 102, 0.7);
-        }
-
         .accounts {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 25px;
-            margin-top: 20px;
+            margin-top: 30px;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .account {
             background: var(--dark-card);
             border-radius: 10px;
-            padding: 25px;
-            width: 280px;
+            padding: 20px;
+            width: 220px;
             transition: all 0.4s;
             border: 1px solid transparent;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
@@ -400,7 +385,7 @@
         }
 
         .account:hover {
-            transform: translateY(-10px) scale(1.03);
+            transform: translateY(-8px) scale(1.03);
             box-shadow: 0 15px 30px rgba(217, 35, 15, 0.3);
         }
 
@@ -409,18 +394,18 @@
         }
 
         .account i {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
+            font-size: 2.8rem;
+            margin-bottom: 15px;
             text-shadow: 0 0 10px currentColor;
             background: rgba(0, 0, 0, 0.7);
-            padding: 15px;
+            padding: 12px;
             border-radius: 50%;
-            width: 80px;
-            height: 80px;
+            width: 70px;
+            height: 70px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 20px;
+            margin: 0 auto 15px;
             transition: all 0.5s ease;
         }
 
@@ -450,12 +435,12 @@
         }
 
         .account h3 {
-            margin: 15px 0;
-            font-size: 1.8rem;
+            margin: 12px 0;
+            font-size: 1.5rem;
             color: #fff;
             text-shadow: 0 0 5px #000;
             background: rgba(0, 0, 0, 0.7);
-            padding: 10px;
+            padding: 8px;
             border-radius: 5px;
             transition: all 0.5s ease;
         }
@@ -467,10 +452,10 @@
 
         .account p {
             color: #ddd;
-            margin-bottom: 20px;
-            font-size: 1.1rem;
+            margin-bottom: 15px;
+            font-size: 1rem;
             background: rgba(0, 0, 0, 0.5);
-            padding: 10px;
+            padding: 8px;
             border-radius: 5px;
             transition: all 0.5s ease;
         }
@@ -481,7 +466,7 @@
         }
 
         .account .emoji {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             margin-left: 5px;
         }
 
@@ -775,6 +760,7 @@
             
             .account {
                 width: 90%;
+                max-width: 300px;
             }
             
             .inquiry-section {
@@ -825,58 +811,55 @@
             <p>مرحباً بك في منصة روكس لتطوير بوتات تلجرام! نحن نقدم خدمات تطوير البوتات بجميع أنواعها، من البوتات البسيطة إلى الأنظمة المعقدة. اختر الطريقة التي تناسبك للتواصل معنا أو استكشف خدماتنا!</p>
         </div>
         
-        <section class="accounts-section">
-            <h2>حسابات التواصل 📱</h2>
-            <div class="accounts">
-                <div class="account instagram" onclick="window.open('https://instagram.com/x.s_ik', '_blank')">
-                    <i class="fab fa-instagram"></i>
-                    <h3>انستجرام <span class="emoji">📷</span></h3>
-                    <p>اضغط لزيارة الحساب</p>
-                </div>
-                
-                <div class="account telegram-account" onclick="window.open('https://t.me/QR_l4', '_blank')">
-                    <i class="fab fa-telegram"></i>
-                    <h3>حساب التلجرام <span class="emoji">👤</span></h3>
-                    <p>اضغط للتواصل الشخصي</p>
-                </div>
-                
-                <div class="account whatsapp" onclick="window.open('https://wa.me/+77071138332', '_blank')">
-                    <i class="fab fa-whatsapp"></i>
-                    <h3>واتساب <span class="emoji">💬</span></h3>
-                    <p>اضغط للتواصل المباشر</p>
-                </div>
-                
-                <div class="account technology-channel" onclick="window.open('https://t.me/+K7P7A40PaOIwNGY0', '_blank')">
-                    <i class="fas fa-laptop-code"></i>
-                    <h3>قناة التكنولوجيا <span class="emoji">⛑️</span></h3>
-                    <p>قناة متخصصة في المعلوماتية</p>
-                </div>
-                
-                <div class="account snapchat" onclick="window.open('https://www.snapchat.com/add/keko.dev', '_blank')">
-                    <i class="fab fa-snapchat-ghost"></i>
-                    <h3>سناب شات <span class="emoji">👻</span></h3>
-                    <p>اضغط لمتابعة حسابي</p>
-                </div>
-                
-                <div class="account tiktok" onclick="window.open('https://tiktok.com/@rocks.dev', '_blank')">
-                    <i class="fab fa-tiktok"></i>
-                    <h3>تيك توك <span class="emoji">🎵</span></h3>
-                    <p>اضغط لمتابعة الحساب</p>
-                </div>
-                
-                <div class="account rocks-platform" onclick="window.open('https://rocks9.onrender.com', '_blank')">
-                    <i class="fas fa-music"></i>
-                    <h3>منصة روكس <span class="emoji">🎶</span></h3>
-                    <p>اضغط لزيارة المنصة</p>
-                </div>
-                
-                <div class="account store" onclick="window.open('https://roks7.pages.dev/', '_blank')">
-                    <i class="fas fa-shopping-bag"></i>
-                    <h3>متجر القراصنة <span class="emoji">🏴‍☠️</span></h3>
-                    <p>اضغط لزيارة المتجر</p>
-                </div>
+        <div class="accounts">
+            <div class="account instagram" onclick="window.open('https://instagram.com/x.s_ik', '_blank')">
+                <i class="fab fa-instagram"></i>
+                <h3>انستجرام <span class="emoji">📷</span></h3>
+                <p>اضغط لزيارة الحساب</p>
             </div>
-        </section>
+            
+            <div class="account telegram-account" onclick="window.open('https://t.me/QR_l4', '_blank')">
+                <i class="fab fa-telegram"></i>
+                <h3>حساب التلجرام <span class="emoji">👤</span></h3>
+                <p>اضغط للتواصل الشخصي</p>
+            </div>
+            
+            <div class="account whatsapp" onclick="window.open('https://wa.me/+77071138332', '_blank')">
+                <i class="fab fa-whatsapp"></i>
+                <h3>واتساب <span class="emoji">💬</span></h3>
+                <p>اضغط للتواصل المباشر</p>
+            </div>
+            
+            <div class="account technology-channel" onclick="window.open('https://t.me/+K7P7A40PaOIwNGY0', '_blank')">
+                <i class="fas fa-laptop-code"></i>
+                <h3>قناة التكنولوجيا <span class="emoji">⛑️</span></h3>
+                <p>قناة متخصصة في المعلوماتية</p>
+            </div>
+            
+            <div class="account snapchat" onclick="window.open('https://www.snapchat.com/add/keko.dev', '_blank')">
+                <i class="fab fa-snapchat-ghost"></i>
+                <h3>سناب شات <span class="emoji">👻</span></h3>
+                <p>اضغط لمتابعة حسابي</p>
+            </div>
+            
+            <div class="account tiktok" onclick="window.open('https://tiktok.com/@rocks.dev', '_blank')">
+                <i class="fab fa-tiktok"></i>
+                <h3>تيك توك <span class="emoji">🎵</span></h3>
+                <p>اضغط لمتابعة الحساب</p>
+            </div>
+            
+            <div class="account rocks-platform" onclick="window.open('https://rocks9.onrender.com', '_blank')">
+                <i class="fas fa-music"></i>
+                <h3>منصة روكس <span class="emoji">🎶</span></h3>
+                <p>اضغط لزيارة المنصة</p>
+            </div>
+            
+            <div class="account store" onclick="window.open('https://roks7.pages.dev/', '_blank')">
+                <i class="fas fa-shopping-bag"></i>
+                <h3>متجر القراصنة <span class="emoji">🏴‍☠️</span></h3>
+                <p>اضغط لزيارة المتجر</p>
+            </div>
+        </div>
         
         <section class="inquiry-section" id="inquiry">
             <h2>صندوق الأفكار البرمجية 💡</h2>
@@ -961,11 +944,11 @@
                     const angleX = (y - centerY) / 20;
                     const angleY = (centerX - x) / 20;
                     
-                    account.style.transform = `perspective(1000px) rotateX(${angleX}deg) rotateY(${angleY}deg) scale(1.05) translateY(-10px)`;
+                    account.style.transform = `perspective(1000px) rotateX(${angleX}deg) rotateY(${angleY}deg) scale(1.03) translateY(-8px)`;
                 });
                 
                 account.addEventListener('mouseleave', () => {
-                    account.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1) translateY(-10px)';
+                    account.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1) translateY(-8px)';
                 });
             });
 
@@ -1073,4 +1056,4 @@ ${data.message}
         }
     </script>
 </body>
-    </html>
+        </html>
