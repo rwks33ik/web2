@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="منصة روكس لتطوير بوتات تلجرام الاحترافية - خدمات برمجة وتطوير بوتات تلجرام بأنواعها">
+    <meta name="keywords" content="قرصان روكس, روكس, منصه روكس, rocks, تطوير بوتات تلجرام, برمجة بوتات, بوتات تلجرام, مطور بوتات, روكس للبرمجة">
+    <meta name="author" content="روكس Rooks">
+    <title>روكس | Rooks - منصة تطوير بوتات تلجرام</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #d9230f;
+            --secondary-color: #f0a30a;
+            --accent-color: #0088cc;
+            --dark-bg: #0a0a0a;
+            --dark-card: rgba(30, 20, 20, 0.8);
+            --dark-text: #f1f1f1;
+            --light-bg: #f5f5f5;
+            --light-card: rgba(255, 255, 255, 0.8);
+            --light-text: #333;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--dark-text);
+            text-align: center;
+            direction: rtl;
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-image: url('https://i.ibb.co/dsTr8X32/2ea4e4f2bd1a.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-blend-mode: multiply;
+            transition: all 0.5s ease;
+        }
+
+        body.light-mode {
+            background-color: var(--light-bg);
+            color: var(--light-text);
+            background-blend-mode: overlay;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(5, 5, 15, 0.85);
+            z-index: -1;
+            transition: all 0.5s ease;
+        }
+
+        .light-mode .overlay {
+            background: rgba(245, 245, 245, 0.7);
+        }
+
+        .menu-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            font-size: 2rem;
+            cursor: pointer;
+            z-index: 100;
+            background: rgba(20, 20, 30, 0.8);
+            padding: 10px;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--primary-color);
+            box-shadow: 0 0 15px rgba(217, 35, 15, 0.7);
+            transition: all 0.3s ease;
+        }
+
+        .light-mode .menu-btn {
+            background: rgba(245, 245, 245, 0.8);
+            border: 2px solid #25D366;
+            box-shadow: 0 0 15px rgba(37, 211, 102, 0.7);
+        }
+
+        .menu-btn:hover {
+            transform: scale(1.1);
+            background: rgba(217, 35, 15, 0.8);
+        }
+
+        .light-mode .menu-btn:hover {
+            background: rgba(37, 211, 102, 0.8);
+        }
+
+        .menu-content {
+            position: fixed;
+            top: 0;
+            left: -350px;
+            width: 300px;
+            height: 100%;
+            background: rgba(20, 20, 30, 0.95);
+            padding: 20px;
+            box-shadow: 5px 0 25px rgba(0, 0, 0, 0.8);
+            z-index: 99;
+            transition: all 0.4s ease;
+            overflow-y: auto;
+            border-right: 3px solid var(--primary-color);
+        }
+
+        .light-mode .menu-content {
+            background: rgba(245, 245, 245, 0.95);
+            border-right: 3px solid #25D366;
+        }
+
+        .menu-content.show {
+            left: 0;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid var(--primary-color);
+            margin: 20px auto;
+            object-fit: cover;
+            box-shadow: 0 0 20px rgba(217, 35, 15, 0.7);
+        }
+
+        .light-mode .profile-img {
+            border: 3px solid #25D366;
+            box-shadow: 0 0 20px rgba(37, 211, 102, 0.7);
+        }
+
+        .developer-contact {
+            margin-top: 30px;
+        }
+
+        .developer-contact a {
+            display: inline-block;
+            padding: 10px 20px;
+            background: rgba(0, 136, 204, 0.8);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .developer-contact a:hover {
+            background: rgba(0, 136, 204, 1);
+            transform: scale(1.05);
+        }
+
+        header {
+            padding: 20px;
+            background-color: rgba(20, 20, 30, 0.8);
+            border-bottom: 2px solid var(--primary-color);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.5s ease;
+        }
+
+        .light-mode header {
+            background-color: rgba(245, 245, 245, 0.8);
+            border-bottom: 2px solid #25D366;
+        }
+
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            text-shadow: 0 0 10px var(--primary-color);
+            margin: 0;
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+            transition: all 0.5s ease;
+        }
+
+        .light-mode h1 {
+            color: #25D366;
+            text-shadow: 0 0 10px #25D366;
+        }
+
+        .side-image {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 3px solid var(--primary-color);
+            object-fit: cover;
+            box-shadow: 0 0 20px rgba(217, 35, 15, 0.7);
+            z-index: 10;
+            transition: all 0.3s ease;
+        }
+
+        .light-mode .side-image {
+            border: 3px solid #25D366;
+            box-shadow: 0 0 20px rgba(37, 211, 102, 0.7);
+        }
+
+        .side-image:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px rgba(217, 35, 15, 0.9);
+        }
+
+        .light-mode .side-image:hover {
+            box-shadow: 0 0 30px rgba(37, 211, 102, 0.9);
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 30px 20px;
+            margin-right: 150px;
+            transition: all 0.5s ease;
+        }
+
+        @media (max-width: 768px) {
+            main {
+                margin-right: 0;
+            }
+        }
+
+        .intro {
+            max-width: 800px;
+            margin-bottom: 40px;
+            background: var(--dark-card);
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 3px solid var(--primary-color);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+            transition: all 0.5s ease;
+        }
+
+        .light-mode .intro {
+            background: var(--light-card);
+            border-left: 3px solid #25D366;
+        }
+
+        .intro p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            transition: all 0.5s ease;
+        }
+
+        .light-mode .intro p {
+            color: var(--light-text);
+        }
+
+        .accounts {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 30px;
+            max-width: 1000px;
+        }
+
+        .account {
+            background: var(--dark-card);
+            border-radius: 10px;
+            padding: 25px;
+            width: 280px;
+            transition: all 0.4s;
+            border: 1px solid transparent;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(5px);
+            position: relative;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+            background-blend-mode: overlay;
+            cursor: pointer;
+        }
+
+        .light-mode .account {
+            background: var(--light-card);
+        }
+
+        .instagram {
+            background-image: url('https://i.ibb.co/0jQ3YyX/pirate-flag.jpg');
+            border: 2px solid #E1306C;
+        }
+
+        .telegram-account {
+            background-image: url('https://i.ibb.co/7Y7XJ0K/pirate-treasure.jpg');
+            border: 2px solid var(--accent-color);
+        }
+
+        .whatsapp {
+            background-image: url('https://i.ibb.co/6W7qV5j/pirate-ship.jpg');
+            border: 2px solid #25D366;
+        }
+
+        .technology-channel {
+            background-image: url('https://i.ibb.co/0mYd0J0/pirate-robot.jpg');
+            border: 2px solid #8A2BE2;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .snapchat {
+            background-image: url('https://i.ibb.co/7Y7XJ0K/pirate-treasure.jpg');
+            border: 2px solid #FFFC00;
+        }
+
+        .tiktok {
+            background-image: url('https://i.ibb.co/0mYd0J0/pirate-robot.jpg');
+            border: 2px solid #000000;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .rocks-platform {
+            background-image: url('https://i.ibb.co/0jQ3YyX/pirate-flag.jpg');
+            border: 2px solid #FF0000;
+        }
+
+        .store {
+            background-image: url('https://i.ibb.co/7Y7XJ0K/pirate-treasure.jpg');
+            border: 2px solid var(--secondary-color);
+        }
+
+        .technology-channel::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(138, 43, 226, 0.3) 0%, rgba(0, 0, 0, 0.7) 100%);
+            z-index: -1;
+        }
+
+        .tiktok::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(255, 0, 80, 0.3) 100%);
+            z-index: -1;
+        }
+
+        .rocks-platform::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 100%);
+            z-index: -1;
+        }
+
+        .account::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(20, 10, 10, 0.6);
+            z-index: -1;
+        }
+
+        .light-mode .account::before {
+            background: rgba(255, 255, 255, 0.6);
+        }
+
+        .account:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 15px 30px rgba(217, 35, 15, 0.3);
+        }
+
+        .light-mode .account:hover {
+            box-shadow: 0 15px 30px rgba(37, 211, 102, 0.3);
+        }
+
+        .account i {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px currentColor;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            transition: all 0.5s ease;
+        }
+
+        .light-mode .account i {
+            background: rgba(255, 255, 255, 0.7);
+        }
+
+        .whatsapp i { color: #25D366; }
+        .instagram i { color: #E1306C; }
+        .telegram-account i { color: var(--accent-color); }
+        .technology-channel i { color: #8A2BE2; }
+        .snapchat i { color: #FFFC00; }
+        .tiktok i { color: #000000; }
+        .rocks-platform i { color: #FF0000; }
+        .store i { color: var(--secondary-color); }
+
+        .technology-channel i, 
+        .tiktok i,
+        .rocks-platform i { 
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .account h3 {
+            margin: 15px 0;
+            font-size: 1.8rem;
+            color: #fff;
+            text-shadow: 0 0 5px #000;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 5px;
+            transition: all 0.5s ease;
+        }
+
+        .light-mode .account h3 {
+            color: var(--light-text);
+            background: rgba(255, 255, 255, 0.7);
+        }
+
+        .account p {
+            color: #ddd;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 5px;
+            transition: all 0.5s ease;
+        }
+
+        .light-mode .account p {
+            color: var(--light-text);
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .account .emoji {
+            font-size: 1.5rem;
+            margin-left: 5px;
+        }
+
+        .inquiry-section {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 30px;
+            background: var(--dark-card);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border-left: 3px solid var(--primary-color);
+            transition: all 0.5s ease;
+        }
+
+        .light-mode .inquiry-section {
+            background: var(--light-card);
+            border-left: 3px solid #25D366;
+        }
+
+        .inquiry-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 2rem;
+            text-shadow: 0 0 10px rgba(217, 35, 15, 0.7);
+        }
+
+        .light-mode .inquiry-section h2 {
+            color: #25D366;
+            text-shadow: 0 0 10px rgba(37, 211, 102, 0.7);
+        }
+
+        .inquiry-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            text-align: right;
+        }
+
+        .form-group label {
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: var(--dark-text);
+        }
+
+        .light-mode .form-group label {
+            color: var(--light-text);
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(0, 0, 0, 0.5);
+            color: var(--dark-text);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .light-mode .form-group input,
+        .light-mode .form-group textarea,
+        .light-mode .form-group select {
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.7);
+            color: var(--light-text);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 10px rgba(217, 35, 15, 0.5);
+        }
+
+        .light-mode .form-group input:focus,
+        .light-mode .form-group textarea:focus,
+        .light-mode .form-group select:focus {
+            border-color: #25D366;
+            box-shadow: 0 0 10px rgba(37, 211, 102, 0.5);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .rating {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 10px 0;
+        }
+
+        .rating input {
+            display: none;
+        }
+
+        .rating label {
+            font-size: 2rem;
+            color: #ddd;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .rating label:hover,
+        .rating input:checked ~ label {
+            color: var(--secondary-color);
+            transform: scale(1.2);
+        }
+
+        .submit-btn {
+            padding: 12px 30px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .light-mode .submit-btn {
+            background: #25D366;
+        }
+
+        .submit-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(217, 35, 15, 0.7);
+        }
+
+        .light-mode .submit-btn:hover {
+            box-shadow: 0 0 15px rgba(37, 211, 102, 0.7);
+        }
+
+        .submit-btn:disabled {
+            background: #666;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .form-message {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            display: none;
+        }
+
+        .success {
+            background: rgba(37, 211, 102, 0.2);
+            color: #25D366;
+            border: 1px solid #25D366;
+        }
+
+        .error {
+            background: rgba(217, 35, 15, 0.2);
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+        }
+
+        footer {
+            padding: 20px;
+            background-color: rgba(20, 20, 30, 0.9);
+            border-top: 2px solid var(--primary-color);
+            font-size: 1.1rem;
+            margin-right: 150px;
+            transition: all 0.5s ease;
+            position: relative;
+        }
+
+        .light-mode footer {
+            background-color: rgba(245, 245, 245, 0.9);
+            border-top: 2px solid #25D366;
+        }
+
+        .jolly-roger {
+            width: 80px;
+            margin: 10px auto;
+            filter: drop-shadow(0 0 5px var(--primary-color));
+            transition: all 0.5s ease;
+        }
+
+        .light-mode .jolly-roger {
+            filter: drop-shadow(0 0 5px #25D366);
+        }
+
+        .theme-toggle {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(20, 20, 30, 0.8);
+            border: 2px solid var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 100;
+            box-shadow: 0 0 15px rgba(217, 35, 15, 0.7);
+            transition: all 0.3s ease;
+        }
+
+        .light-mode .theme-toggle {
+            background: rgba(245, 245, 245, 0.8);
+            border: 2px solid #25D366;
+            color: #333;
+            box-shadow: 0 0 15px rgba(37, 211, 102, 0.7);
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+        }
+
+        .hacker-text {
+            animation: glow 1.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 5px var(--primary-color); }
+            to { text-shadow: 0 0 15px var(--primary-color), 0 0 25px var(--secondary-color); }
+        }
+
+        .light-mode .hacker-text {
+            animation: glow-light 1.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow-light {
+            from { text-shadow: 0 0 5px #25D366; }
+            to { text-shadow: 0 0 15px #25D366, 0 0 25px var(--accent-color); }
+        }
+
+        .inquiry-note {
+            background: rgba(217, 35, 15, 0.1);
+            border: 1px solid var(--primary-color);
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 0.95rem;
+        }
+
+        .light-mode .inquiry-note {
+            background: rgba(37, 211, 102, 0.1);
+            border: 1px solid #25D366;
+        }
+
+        .inquiry-note p {
+            margin: 5px 0;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 1200px) {
+            .side-image {
+                width: 100px;
+                height: 100px;
+            }
+            
+            main, footer {
+                margin-right: 120px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .side-image {
+                width: 80px;
+                height: 80px;
+                top: 15px;
+                right: 15px;
+            }
+            
+            main, footer {
+                margin-right: 0;
+            }
+            
+            .accounts {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .account {
+                width: 90%;
+            }
+            
+            .inquiry-section {
+                margin: 30px 15px;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay"></div>
+    
+    <div class="menu-btn" onclick="toggleMenu()">📜</div>
+    
+    <div class="menu-content" id="menuContent">
+        <img src="https://i.ibb.co/3mTdXLjd/5097c33e8b3b.jpg" alt="صورة المطور" class="profile-img">
+        <h3 class="dev-title">نبذة عن المطور</h3>
+        <p class="dev-description">
+            « القرصان روكس ☠️<br>
+            <span class="dev-skill-1">مطور بوتات تلجرام بكل الانواع</span><br>
+            <span class="dev-skill-2">ومطور مواقع الويب 🌐</span><br>
+            طالب بكالوريوس الأمن السبراني وشبكات الحاسوب مستوى ثاني <br>
+            العمر 19 🇾🇪💪 »
+        </p>
+        
+        <div class="developer-contact">
+            <a href="https://t.me/QR_l4" target="_blank">
+                <i class="fab fa-telegram"></i> حسابي 🎭
+            </a>
+        </div>
+    </div>
+    
+    <div class="theme-toggle" onclick="toggleTheme()">
+        <i class="fas fa-sun"></i>
+    </div>
+    
+    <img src="aa.jpg" alt="صورة المطور" class="side-image">
+    
+    <header>
+        <div class="header-content">
+            <h1><span class="hacker-text">روكس | Rooks</span> 🏴‍☠️</h1>
+            <p>منصة تطوير بوتات تلجرام الاحترافية</p>
+        </div>
+    </header>
+
+    <main>
+        <div class="intro">
+            <p>مرحباً بك في منصة روكس لتطوير بوتات تلجرام! نحن نقدم خدمات تطوير البوتات بجميع أنواعها، من البوتات البسيطة إلى الأنظمة المعقدة. اختر الطريقة التي تناسبك للتواصل معنا أو استكشف خدماتنا!</p>
+        </div>
+        
+        <div class="accounts">
+            <div class="account instagram" onclick="window.open('https://instagram.com/x.s_ik', '_blank')">
+                <i class="fab fa-instagram"></i>
+                <h3>انستجرام <span class="emoji">📷</span></h3>
+                <p>اضغط لزيارة الحساب</p>
+            </div>
+            
+            <div class="account telegram-account" onclick="window.open('https://t.me/QR_l4', '_blank')">
+                <i class="fab fa-telegram"></i>
+                <h3>حساب التلجرام <span class="emoji">👤</span></h3>
+                <p>اضغط للتواصل الشخصي</p>
+            </div>
+            
+            <div class="account whatsapp" onclick="window.open('https://wa.me/+77071138332', '_blank')">
+                <i class="fab fa-whatsapp"></i>
+                <h3>واتساب <span class="emoji">💬</span></h3>
+                <p>اضغط للتواصل المباشر</p>
+            </div>
+            
+            <div class="account technology-channel" onclick="window.open('https://t.me/+K7P7A40PaOIwNGY0', '_blank')">
+                <i class="fas fa-laptop-code"></i>
+                <h3>قناة التكنولوجيا <span class="emoji">⛑️</span></h3>
+                <p>قناة متخصصة في المعلوماتية</p>
+            </div>
+            
+            <div class="account snapchat" onclick="window.open('https://www.snapchat.com/add/keko.dev', '_blank')">
+                <i class="fab fa-snapchat-ghost"></i>
+                <h3>سناب شات <span class="emoji">👻</span></h3>
+                <p>اضغط لمتابعة حسابي</p>
+            </div>
+            
+            <div class="account rocks-platform" onclick="window.open('https://rocks9.onrender.com', '_blank')">
+                <i class="fas fa-music"></i>
+                <h3>منصة روكس <span class="emoji">🎶</span></h3>
+                <p>اضغط لزيارة المنصة</p>
+            </div>
+            
+            <div class="account store" onclick="window.open('https://roks7.pages.dev/', '_blank')">
+                <i class="fas fa-shopping-bag"></i>
+                <h3>متجر القراصنة <span class="emoji">🏴‍☠️</span></h3>
+                <p>اضغط لزيارة المتجر</p>
+            </div>
+            
+            <div class="account tiktok" onclick="window.open('https://tiktok.com/@rocks.dev', '_blank')">
+                <i class="fab fa-tiktok"></i>
+                <h3>تيك توك <span class="emoji">🎵</span></h3>
+                <p>اضغط لمتابعة الحساب</p>
+            </div>
+        </div>
+        
+        <section class="inquiry-section" id="inquiry">
+            <h2>صندوق الأفكار البرمجية 💡</h2>
+            <p>هذا القسم مخصص لاستقبال أفكارك ومقترحاتك البرمجية لتطوير منصة روكس</p>
+            
+            <div class="inquiry-note">
+                <p><strong>ملاحظة هامة:</strong></p>
+                <p>✓ هذا القسم فقط لاستقبال الأفكار البرمجية والتطويرية</p>
+                <p>✓ لا يمكننا الرد عليك من خلال هذا النموذج</p>
+                <p>✓ سنستقبل رسائلك ونعمل على تطبيق المناسب منها</p>
+                <p>✓ للتواصل المباشر يرجى زيارة أحد حساباتنا أعلاه</p>
+            </div>
+            
+            <form class="inquiry-form" id="inquiryForm">
+                <div class="form-group">
+                    <label for="name">الاسم:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="contact">وسيلة التواصل (اختياري):</label>
+                    <input type="text" id="contact" name="contact" placeholder="تلجرام أو واتساب (اختياري)">
+                </div>
+                
+                <div class="form-group">
+                    <label for="type">نوع الفكرة:</label>
+                    <select id="type" name="type" required>
+                        <option value="">اختر نوع الفكرة</option>
+                        <option value="تطوير بوت">فكرة لتطوير بوت تلجرام</option>
+                        <option value="ميزة جديدة">ميزة جديدة للمنصة</option>
+                        <option value="تحسين خدمة">تحسين خدمة موجودة</option>
+                        <option value="مشروع جديد">مشروع برمجي جديد</option>
+                        <option value="اقتراح عام">اقتراح عام</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">وصف الفكرة:</label>
+                    <textarea id="message" name="message" required placeholder="صف فكرتك البرمجية أو التطويرية بالتفصيل..."></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn" id="submitBtn">إرسال الفكرة</button>
+                
+                <div class="form-message" id="formMessage"></div>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <img src="https://i.imgur.com/7Q6Wl1P.png" alt="Jolly Roger" class="jolly-roger">
+        <p>© 2025 روكس | Rooks - منصة تطوير بوتات تلجرام 🏴‍☠️ | جميع الحقوق محفوظة</p>
+        <p class="footer-message">نحن نبتكر حلول تلجرام التي تحتاجها! الكنز 💰 الحقيقي هو الرضا التام لعملائنا</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const accounts = document.querySelectorAll('.account');
+            
+            setTimeout(() => {
+                accounts.forEach((account, index) => {
+                    setTimeout(() => {
+                        account.style.opacity = '1';
+                        account.style.transform = 'translateY(0)';
+                    }, 200 * index);
+                });
+            }, 500);
+            
+            accounts.forEach(account => {
+                account.style.opacity = '0';
+                account.style.transform = 'translateY(20px)';
+                account.style.transition = 'all 0.5s ease-out';
+            });
+            
+            accounts.forEach(account => {
+                account.addEventListener('mousemove', (e) => {
+                    const rect = account.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    
+                    const angleX = (y - centerY) / 20;
+                    const angleY = (centerX - x) / 20;
+                    
+                    account.style.transform = `perspective(1000px) rotateX(${angleX}deg) rotateY(${angleY}deg) scale(1.05) translateY(-10px)`;
+                });
+                
+                account.addEventListener('mouseleave', () => {
+                    account.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1) translateY(-10px)';
+                });
+            });
+
+            document.body.classList.remove('light-mode');
+            document.querySelector('.theme-toggle i').classList.remove('fa-moon');
+            document.querySelector('.theme-toggle i').classList.add('fa-sun');
+            
+            setupInquiryForm();
+        });
+
+        function toggleMenu() {
+            const menuContent = document.getElementById('menuContent');
+            menuContent.classList.toggle('show');
+        }
+
+        function toggleTheme() {
+            const body = document.body;
+            const themeIcon = document.querySelector('.theme-toggle i');
+            
+            body.classList.toggle('light-mode');
+            
+            if (body.classList.contains('light-mode')) {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            } else {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            }
+        }
+
+        function setupInquiryForm() {
+            const form = document.getElementById('inquiryForm');
+            const submitBtn = document.getElementById('submitBtn');
+            const formMessage = document.getElementById('formMessage');
+            
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'جاري الإرسال...';
+                
+                const formData = new FormData(form);
+                const data = {
+                    name: formData.get('name'),
+                    contact: formData.get('contact'),
+                    type: formData.get('type'),
+                    message: formData.get('message'),
+                    rating: formData.get('rating') || 'غير محدد'
+                };
+                
+                try {
+                    const botToken = '7761029482:AAFm0zGPRgQrWSh1-Uwbhi2l5wOh88F-v6E';
+                    const chatId = '6808883615';
+                    
+                    const messageText = `
+فكرة جديدة من موقع روكس:
+
+👤 الاسم: ${data.name}
+📞 وسيلة التواصل: ${data.contact || 'لم يذكر'}
+📋 نوع الفكرة: ${data.type}
+💡 الفكرة:
+${data.message}
+                    `;
+                    
+                    const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
+                    
+                    const response = await fetch(url, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            chat_id: chatId,
+                            text: messageText
+                        })
+                    });
+                    
+                    const result = await response.json();
+                    
+                    if (result.ok) {
+                        formMessage.textContent = 'تم إرسال فكرتك بنجاح! شكراً لمشاركتك معنا.';
+                        formMessage.className = 'form-message success';
+                        formMessage.style.display = 'block';
+                        
+                        form.reset();
+                    } else {
+                        throw new Error('فشل في إرسال الفكرة');
+                    }
+                    
+                } catch (error) {
+                    console.error('Error sending message:', error);
+                    
+                    formMessage.textContent = 'حدث خطأ أثناء إرسال فكرتك. يرجى المحاولة مرة أخرى.';
+                    formMessage.className = 'form-message error';
+                    formMessage.style.display = 'block';
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'إرسال الفكرة';
+                    
+                    setTimeout(() => {
+                        formMessage.style.display = 'none';
+                    }, 5000);
+                }
+            });
+        }
+    </script>
+</body>
+</html>
